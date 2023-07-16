@@ -86,7 +86,7 @@ self.addEventListener('beforeinstallprompt', (event) => {
   divInstall.classList.toggle('hidden', false);
 });
 
-const butInstall = document.getElementById('butInstall');
+const butInstall = self.document.getElementById('butInstall');
 butInstall.addEventListener('click', async () => {
   console.log('👍', 'butInstall-clicked');
   const promptEvent = self.deferredPrompt;
