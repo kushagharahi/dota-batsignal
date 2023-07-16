@@ -11,12 +11,12 @@ let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', function (e) {
 
+  document.getElementById('installContainer').classList.toggle('hidden', false);
   // Prevent the mini-infobar from appearing on mobile
   e.preventDefault();
 
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
-  document.getElementById('installContainer').classList.toggle('hidden', false);
 });
 
 var buttonInstall = document.getElementById('butInstall');
