@@ -17,7 +17,7 @@ window.addEventListener('beforeinstallprompt', function (e) {
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
 
-  document.getElementById('divInstall').classList.toggle('hidden', false);
+  document.getElementById('installContainer').classList.toggle('hidden', false);
 });
 
 var buttonInstall = document.getElementById('butInstall');
