@@ -16,8 +16,13 @@ window.addEventListener('beforeinstallprompt', function (e) {
 
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
-
-  document.getElementById('installContainer').classList.toggle('hidden', false);
+  let isIOS = /iPad|iPhone|iPod/.test(navigator.platform)
+  || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+  if(isIOS) {
+    document.getElementById('iOsInstallContainer').classList.toggle('hidden', false);
+  } else {
+    document.getElementById('installContainer').classList.toggle('hidden', false);
+  }
 });
 
 var buttonInstall = document.getElementById('butInstall');
