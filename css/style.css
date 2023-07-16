@@ -21,3 +21,8 @@ html,
 .title {
   font-size: 3rem;
 }
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
