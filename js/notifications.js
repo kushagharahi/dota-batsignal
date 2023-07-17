@@ -19,15 +19,16 @@ buttonEnableNotifications.addEventListener('click', async () => {
 })
 function enableNotifications() {
     document.getElementById('g2g').classList.toggle('hidden', false);
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-      OneSignal.init({
-        appId: "aebe4e74-b5d0-4a57-9b33-eb6e13b6fab0",
-        safari_web_id: "web.onesignal.auto.5136aa20-d33c-4de6-8d7f-c3f8c4b264dc",
-        path: "/dota-batsignal/",
-        notifyButton: {
-          enable: true,
-        },
-      });
-    });
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('61f0f37b06bd346c53a9', {
+          cluster: 'us2'
+        });
+    
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            new Notification(data);
+        });
+   
 }
