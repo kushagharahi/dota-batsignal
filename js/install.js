@@ -52,6 +52,6 @@ window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt)
 let isIOS = /iPad|iPhone|iPod/.test(navigator.platform)
 || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
 
-if(isIOS) {
+if(isIOS && displayMode !== 'standalone') {
   document.getElementById('iOsInstallContainer').classList.toggle('hidden', false);
 }
