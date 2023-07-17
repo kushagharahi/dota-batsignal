@@ -54,21 +54,24 @@
           <h3>You are good to go! You are all set to receive notifications!</h3>
         </div>
   </div>
-  <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+
+
+  <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
+
+
+
   <script>
-
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('61f0f37b06bd346c53a9', {
-      cluster: 'us2'
+    const beamsClient = new PusherPushNotifications.Client({
+      instanceId: '857b0db6-6c58-4d3b-bd80-a643f2b32fad',
     });
-
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      new Notification(data.message)
-    });
+  
+    beamsClient.start()
+      .then(() => beamsClient.addDeviceInterest('hello'))
+      .then(() => console.log('Successfully registered and subscribed!'))
+      .catch(console.error);
   </script>
+  
+  
   <script src="js/init.js"></script>
   <script src="js/install.js"></script>
   <script src="js/notifications.js"></script>
