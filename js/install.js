@@ -44,14 +44,15 @@ window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt)
   if (evt.matches) {
     displayMode = 'standalone';
     hideInstallPrompts();
+  } else {
+    let isIOS = /iPad|iPhone|iPod/.test(navigator.platform)
+      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+    if(isIOS) {
+      document.getElementById('iOsInstallContainer').classList.toggle('hidden', false);
+    }
   }
   // Log display mode change to analytics
   console.log('DISPLAY_MODE_CHANGED', displayMode);
 });
 
-let isIOS = /iPad|iPhone|iPod/.test(navigator.platform)
-|| (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-
-if(isIOS && displayMode !== 'standalone') {
-  document.getElementById('iOsInstallContainer').classList.toggle('hidden', false);
-}
