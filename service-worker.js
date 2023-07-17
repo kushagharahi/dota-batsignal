@@ -1,11 +1,5 @@
 importScripts("https://js.pusher.com/beams/service-worker.js");
 
-window.navigator.serviceWorker.ready.then(serviceWorkerRegistration => {
-  const beamsClient = new PusherPushNotifications.Client({
-    instanceId: '57b0db6-6c58-4d3b-bd80-a643f2b32fad',
-    serviceWorkerRegistration: serviceWorkerRegistration,
-  })
-})
 // Incrementing OFFLINE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 // This variable is intentionally declared and unused.
