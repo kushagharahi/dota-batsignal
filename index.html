@@ -66,7 +66,7 @@
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      new Notification(data)
+      new Notification(data[0].data.message)
     });
   </script>
   <script src="js/init.js"></script>
