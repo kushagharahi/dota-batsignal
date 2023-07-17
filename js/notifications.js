@@ -20,6 +20,7 @@ buttonEnableNotifications.addEventListener('click', async () => {
 function enableNotifications() {
     document.getElementById('g2g').classList.toggle('hidden', false);
         // Enable pusher logging - don't include this in production
+        const Pusher = require('pusher-js');
         Pusher.logToConsole = true;
 
         var pusher = new Pusher('61f0f37b06bd346c53a9', {
