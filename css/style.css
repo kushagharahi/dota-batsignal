@@ -26,3 +26,8 @@ html,
   display: none;
   visibility: hidden;
 }
+
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
