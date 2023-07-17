@@ -1,7 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
-    if (window.matchMedia('(display-mode: standalone)').matches && Notification.permission !== "granted") {
+    if(window.matchMedia('(display-mode: standalone)').matches){
+    if (Notification.permission !== "granted") {
         document.getElementById('enableNotifications').classList.toggle('hidden', false);
-    }
+    } else if (Notification.permission === "granted") {
+        document.getElementById('g2g').classList.toggle('hidden', false);
+    }}
 })
 
 var buttonEnableNotifications = document.getElementById('butNotifications');
