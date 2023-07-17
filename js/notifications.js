@@ -1,4 +1,4 @@
-window.addEventListener('standaloneappopened', () => {
+window.addEventListener('standaloneappopen', () => {
     if (Notification.permission !== "granted") {
         document.getElementById('enableNotifications').classList.toggle('hidden', false);
     }
