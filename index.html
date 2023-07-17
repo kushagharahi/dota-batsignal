@@ -54,15 +54,21 @@
           <h3>You are good to go! You are all set to receive notifications!</h3>
         </div>
   </div>
-  <script type="text/javascript">
-    (function(d, t) {
-            var g = d.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-            g.src = "https://cdn.pushalert.co/integrate_244ecebb4801e635ae5a9888d95ef3bb.js";
-            s.parentNode.insertBefore(g, s);
-    }(document, "script"));
-</script>
+  <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+  <script>
 
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('61f0f37b06bd346c53a9', {
+      cluster: 'us2'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script>
   <script src="js/init.js"></script>
   <script src="js/install.js"></script>
   <script src="js/notifications.js"></script>
