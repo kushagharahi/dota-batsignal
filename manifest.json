@@ -27,7 +27,8 @@
       "type": "image/png"
     }],
   "lang": "en-US",
-  "start_url": "/dota-batsignal/index.html",
+  "start_url": "https://kusha.me/dota-batsignal/index.html",
+  "scope": "/data-batsignal/",
   "display": "standalone",
   "background_color": "white",
   "theme_color": "white"
