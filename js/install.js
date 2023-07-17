@@ -1,12 +1,3 @@
-window.onload = () => {
-  'use strict';
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-             .register('./service-worker.js');
-  }
-}
-
 function hideInstallPrompts() {
   document.getElementById('installContainer').classList.toggle('hidden', true);
   document.getElementById('iOsInstallContainer').classList.toggle('hidden', true);
