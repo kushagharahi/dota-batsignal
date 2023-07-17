@@ -76,5 +76,3 @@ self.addEventListener("fetch", (event) => {
   // will be handled by the browser as if there were no service
   // worker involvement.
 });
-
-importScripts('https://sdk.pushy.me/web/1.0.10/pushy-service-worker.js');

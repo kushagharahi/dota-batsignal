@@ -19,18 +19,15 @@ buttonEnableNotifications.addEventListener('click', async () => {
 })
 function enableNotifications() {
     document.getElementById('g2g').classList.toggle('hidden', false);
-
-    // Register visitor's browser for push notifications
-    Pushy.register({ appId: 'dota-batsignal' }).then(function (deviceToken) {
-    // Print device token to console
-    console.log('Pushy device token: ' + deviceToken);
-
-    // Send the token to your backend server via an HTTP GET request
-    //fetch('https://your.api.hostname/register/device?token=' + deviceToken);
-
-    // Succeeded, optionally do something to alert the user
-    }).catch(function (err) {
-    // Notify user of failure
-    alert('Registration failed: ' + err.message);
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "aebe4e74-b5d0-4a57-9b33-eb6e13b6fab0",
+        safari_web_id: "web.onesignal.auto.5136aa20-d33c-4de6-8d7f-c3f8c4b264dc",
+        path: "/dota-batsignal/",
+        notifyButton: {
+          enable: true,
+        },
+      });
     });
 }
