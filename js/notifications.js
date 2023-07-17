@@ -1,5 +1,5 @@
-window.addEventListener('standaloneappopen', () => {
-    if (Notification.permission !== "granted") {
+window.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(display-mode: standalone)').matches && Notification.permission !== "granted") {
         document.getElementById('enableNotifications').classList.toggle('hidden', false);
     }
 })
