@@ -3,6 +3,8 @@ function hideInstallPrompts() {
   document.getElementById('iOsInstallContainer').classList.toggle('hidden', true);
 }
 
+const standAloneAppOpenEvent = new Event("standaloneappopen");
+
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -44,6 +46,7 @@ window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt)
   if (evt.matches) {
     displayMode = 'standalone';
     hideInstallPrompts();
+    window.dispatchEvent(standAloneAppOpenEvent);
   }
   // Log display mode change to analytics
   console.log('DISPLAY_MODE_CHANGED', displayMode);
